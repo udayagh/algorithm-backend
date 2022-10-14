@@ -44,6 +44,11 @@ public class RomansNumberPrintControllerTest extends TestCase {
 
     @Test
     public void testGetRomansNumerals() throws Exception {
-
+        ResponseObject responseObject = new ResponseObject(true,"X");
+        ResponseEntity<ResponseObject> responseObjectResponseEntity = new ResponseEntity<>(responseObject,HttpStatus.OK);
+        Mockito.when(romansNumberPrintService.getRomansNumerals(10)).thenReturn(responseObjectResponseEntity);
+        MockHttpServletRequestBuilder mockHttpServletRequestBuilder = MockMvcRequestBuilders.get("/romans/getRomansNumerals/10")
+                .contentType(MediaType.APPLICATION_JSON_UTF8);
+        mockMvc.perform(mockHttpServletRequestBuilder).andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

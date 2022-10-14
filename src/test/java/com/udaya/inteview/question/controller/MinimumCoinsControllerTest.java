@@ -35,8 +35,8 @@ public class MinimumCoinsControllerTest extends TestCase {
 
     @Test
     public void testValidatePalindrome() throws Exception {
-        Mockito.when(minimumCoinsService.getMinimumCoins(10)).thenReturn(10);
-        MockHttpServletRequestBuilder mockHttpServletRequestBuilder = MockMvcRequestBuilders.get("/minimumCoins/getMinimumConins/10")
+        Mockito.when(minimumCoinsService.getMinimumCoins(14)).thenReturn(3);
+        MockHttpServletRequestBuilder mockHttpServletRequestBuilder = MockMvcRequestBuilders.get("/minimumCoins/getMinimumConins/14")
                 .contentType(MediaType.APPLICATION_JSON_UTF8);
         mockMvc.perform(mockHttpServletRequestBuilder).andExpect(MockMvcResultMatchers.status().isOk());
     }

@@ -34,8 +34,8 @@ public class FibonacciSeriesControllerTest extends TestCase {
 
     @Test
     public void testGetFibonacciSeries() throws Exception {
-        Mockito.when(fibonacciSeriesService.getFibonacciSeries(10)).thenReturn(10);
-        MockHttpServletRequestBuilder mockHttpServletRequestBuilder = MockMvcRequestBuilders.get("/fibonacciSeries/getFibonacciSeries/10")
+        Mockito.when(fibonacciSeriesService.getFibonacciSeries(12)).thenReturn(144);
+        MockHttpServletRequestBuilder mockHttpServletRequestBuilder = MockMvcRequestBuilders.get("/fibonacciSeries/getFibonacciSeries/12")
                 .contentType(MediaType.APPLICATION_JSON_UTF8);
         mockMvc.perform(mockHttpServletRequestBuilder).andExpect(MockMvcResultMatchers.status().isOk());
     }
