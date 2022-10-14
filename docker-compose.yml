@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+
+  interview-example:
+    image: interview-example.jar
+    container_name: interview-example
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          memory: 100M
+    build:
+      context: interview-example
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./back-end/logs:/tmp/logs
+    networks:
+      - spring-cloud-network
+
+networks:
+  spring-cloud-network:
+    driver: bridge
